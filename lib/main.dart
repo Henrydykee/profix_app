@@ -1,9 +1,14 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:profixapp/boardingFlow/boarding_screen.dart';
+import 'package:profixapp/viewmodels/signup.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (_) => SigupViewModel())],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -40,14 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
               fit: BoxFit.cover
             )),
         child: Center(
-          child: GestureDetector(
-            onTap: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => BoardingScreen()),
-              );
-            },
-              child: Image.asset("assets/images/logo.png")),
+          child: Image.asset("assets/images/logo.png"),
         ),
       ),
     );
