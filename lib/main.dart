@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:profixapp/boardingFlow/boarding_screen.dart';
-import 'package:profixapp/viewmodels/signup.dart';
+import 'package:profixapp/viewmodels/auth.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(MultiProvider(
-    providers: [ChangeNotifierProvider(create: (_) => SigupViewModel())],
+    providers: [ChangeNotifierProvider(create: (_) => AuthViewModel())],
     child: MyApp(),
   ));
 }
