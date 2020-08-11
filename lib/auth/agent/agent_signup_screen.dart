@@ -19,7 +19,7 @@ class _AgentSignUpScreenState extends State<AgentSignUpScreen> {
                 image: AssetImage("assets/images/agent2.png"),
                 fit: BoxFit.fill)),
         child: Padding(
-          padding: const EdgeInsets.only(left: 25,right: 25,top: 25,bottom: 10),
+          padding: const EdgeInsets.only(left: 25,right: 25,top: 50,bottom: 10),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

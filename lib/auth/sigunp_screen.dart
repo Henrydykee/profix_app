@@ -4,6 +4,7 @@ import 'package:profixapp/auth/welcome_profix.dart';
 import 'package:profixapp/common/status.dart';
 import 'package:profixapp/model/auth_user.dart';
 import 'package:profixapp/utils/colors.dart';
+import 'package:profixapp/utils/pref_utils.dart';
 import 'package:profixapp/viewmodels/auth.dart';
 import 'package:profixapp/widgets/button.dart';
 import 'package:provider/provider.dart';
@@ -36,14 +37,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: Consumer<AuthViewModel>(
         builder: (context, viewModel, child){
           if (viewModel.getUserSignupStatus() == Status.SUCCESSFUL){
+            PrefUtils.setUserHasFinishedOnboarding();
+            PrefUtils.setFirstName(_firstname.text);
+            PrefUtils.setLastName(_lastname.text);
             WidgetsBinding.instance.addPostFrameCallback((_) {
              viewModel.clearStatus();
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => WelcomeProfix(
-                  name: _firstname.text.toUpperCase(),
-                )),
-              );
+             Navigator.pushAndRemoveUntil(
+               context,
+               MaterialPageRoute(builder: (context) {
+                 return WelcomeProfix(
+                   name: _firstname.text.toUpperCase(),
+                 );
+               }),
+                   (_) => false,
+             );
             });
           }
           else if(viewModel.getUserSignupStatus() == Status.FAILED){
@@ -126,13 +133,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               icon: Icon(Icons.lock,color: Colors.white,),
                             ),
                             SizedBox(height: 30,),
-                            LoginFields(
-                              controller: _confrimPassword,
-                              title: "Confirm Password",
-                              Hide: true,
-                              icon: Icon(Icons.lock,color: Colors.white,),
-                            ),
-                            SizedBox(height: 10,),
+//                            LoginFields(
+//                              controller: _confrimPassword,
+//                              title: "Confirm Password",
+//                              Hide: true,
+//                              icon: Icon(Icons.lock,color: Colors.white,),
+//                            ),
+//                            SizedBox(height: 10,),
                           ],
                         ),
                       ),

@@ -19,8 +19,5 @@ final slideList =[
   Slide(
       imageUrl: 'assets/images/others_services.png',
   ),
-//  Slide(
-//      imageUrl: 'assets/images/value.png',
-//  ),
 
 ];

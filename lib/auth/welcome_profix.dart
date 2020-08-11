@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profixapp/home/buttom_nav_bar.dart';
 import 'package:profixapp/utils/colors.dart';
 
 class WelcomeProfix extends StatefulWidget {
@@ -35,7 +36,7 @@ class _WelcomeProfixState extends State<WelcomeProfix> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(top: 250),
-                      child: Text("Hi ${widget.name}\nWelcome to ",style: TextStyle(
+                      child: Text("Hi ${widget.name},\nWelcome to",style: TextStyle(
                           color: Colors.blue,
                           fontSize: 35,
                           fontWeight: FontWeight.w600
@@ -57,20 +58,31 @@ class _WelcomeProfixState extends State<WelcomeProfix> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 200),
-                      child: Container(
-                        width: 120,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: ProfixColor.DARK_BLUE),
-                          borderRadius: BorderRadius.circular(20),
-                          color:ProfixColor.DARK_BLUE,
-                        ),
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              "Continue",
-                              style: TextStyle(
-                               color: Colors.white
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return ButtomNav();
+                            }),
+                                (_) => false,
+                          );
+                        },
+                        child: Container(
+                          width: 120,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: ProfixColor.DARK_BLUE),
+                            borderRadius: BorderRadius.circular(20),
+                            color:ProfixColor.DARK_BLUE,
+                          ),
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Continue",
+                                style: TextStyle(
+                                 color: Colors.white
+                                ),
                               ),
                             ),
                           ),

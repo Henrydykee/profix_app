@@ -3,6 +3,8 @@ import 'package:profixapp/auth/agent/agent_intro_screen.dart';
 import 'package:profixapp/auth/forgotPasscode/reset_password_email_screen.dart';
 import 'package:profixapp/auth/sigunp_screen.dart';
 import 'package:profixapp/common/status.dart';
+import 'package:profixapp/home/buttom_nav_bar.dart';
+import 'package:profixapp/home/home_screen.dart';
 import 'package:profixapp/model/auth_user.dart';
 import 'package:profixapp/utils/colors.dart';
 import 'package:profixapp/viewmodels/auth.dart';
@@ -38,6 +40,18 @@ class _LoginScreenState extends State<LoginScreen> {
               viewModel.clearStatus();
               Scaffold.of(context).showSnackBar(
                 SnackBar(content: Text(viewModel.getErrorMessage())),
+              );
+            });
+          }
+          else if(viewModel.getUserLoginStatus() == Status.SUCCESSFUL){
+            WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+             // viewModel.clearStatus();
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return ButtomNav();
+                }),
+                    (_) => false,
               );
             });
           }
@@ -117,6 +131,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           ProfixButton(
                             status: viewModel.getUserLoginStatus(),
                             onPrressed:() async {
+//                              Navigator.pushAndRemoveUntil(
+//                                context,
+//                                MaterialPageRoute(builder: (context) {
+//                                  return ButtomNav();
+//                                }),
+//                                    (_) => false,
+//                              );
                               if(!_formKey.currentState.validate()){
                                 return;
                               } else {

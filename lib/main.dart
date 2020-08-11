@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:profixapp/auth/login_screen.dart';
 import 'package:profixapp/boardingFlow/boarding_screen.dart';
+import 'package:profixapp/utils/pref_utils.dart';
 import 'package:profixapp/viewmodels/auth.dart';
 import 'package:provider/provider.dart';
 
@@ -30,10 +32,20 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(
-        Duration(seconds: 3),
-            () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => BoardingScreen())));
+    PrefUtils.getUserHasFinishedOnboarding().then((value){
+      if(value != null ){
+        Timer(
+            Duration(seconds: 3),
+                () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (BuildContext context) => LoginScreen())));
+      } else{
+        Timer(
+            Duration(seconds: 3),
+                () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (BuildContext context) => BoardingScreen())));
+
+      }
+    });
   }
   @override
   Widget build(BuildContext context) {
