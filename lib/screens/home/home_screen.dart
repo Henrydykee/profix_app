@@ -27,9 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
     });
     super.initState();
   }
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       drawer: Drawer(
         child: Padding(
           padding: const EdgeInsets.only(top: 90),
@@ -131,19 +135,18 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         )
       ),
-      appBar: AppBar(
-        flexibleSpace: Image(
-          image: AssetImage('assets/images/home_header.png'),
-          fit: BoxFit.cover,
-        ),
-        elevation: 0.0,
-      ),
       body: Container(
         color: Colors.white,
         child: Column(
           children: [
+            Container(
+              height: 50,
+              color: ProfixColor.LIGHT_BLUE,
+
+            ),
             Stack(
               children: [
+
                 Container(
                   height: 200,
                   width: MediaQuery.of(context).size.width,
@@ -154,14 +157,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: MediaQuery.of(context).size.width,
                   ),
                 ),
-//                Padding(
-//                  padding: const EdgeInsets.only(left: 10, top: 25),
-//                  child: Icon(
-//                    Icons.menu,
-//                    color: Colors.white,
-//                    size: 25,
-//                  ),
-//                ),
+               Padding(
+                 padding: const EdgeInsets.only(left: 25, top: 25),
+                 child: GestureDetector(
+                   onTap: (){
+                     _scaffoldKey.currentState.openDrawer();
+                   },
+                   child: Icon(
+                     Icons.menu,
+                     color: Colors.white,
+                     size: 25,
+                   ),
+                 ),
+               ),
                 Padding(
                   padding: const EdgeInsets.only(left: 25, right: 25),
                   child: Column(
