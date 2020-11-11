@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:profixapp/auth/agent/agent_intro_screen.dart';
-import 'package:profixapp/auth/forgotPasscode/reset_password_email_screen.dart';
-import 'package:profixapp/auth/sigunp_screen.dart';
 import 'package:profixapp/common/status.dart';
-import 'package:profixapp/home/buttom_nav_bar.dart';
-import 'package:profixapp/home/home_screen.dart';
 import 'package:profixapp/model/auth_user.dart';
+import 'package:profixapp/screens/auth/agent/agent_intro_screen.dart';
+import 'package:profixapp/screens/auth/sigunp_screen.dart';
+import 'package:profixapp/screens/home/buttom_nav_bar.dart';
 import 'package:profixapp/utils/colors.dart';
 import 'package:profixapp/viewmodels/auth.dart';
 import 'package:profixapp/widgets/button.dart';
 import 'package:provider/provider.dart';
+
+import 'forgotPasscode/reset_password_email_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -131,13 +131,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           ProfixButton(
                             status: viewModel.getUserLoginStatus(),
                             onPrressed:() async {
-//                              Navigator.pushAndRemoveUntil(
-//                                context,
-//                                MaterialPageRoute(builder: (context) {
-//                                  return ButtomNav();
-//                                }),
-//                                    (_) => false,
-//                              );
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(builder: (context) {
+                                  return ButtomNav();
+                                }),
+                                    (_) => false,
+                              );
                               if(!_formKey.currentState.validate()){
                                 return;
                               } else {
@@ -146,6 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 login.password = _password.text.trim();
                                 await  viewModel.LoginConsumer(login);
                               }
+
                             },
                             color: ProfixColor.DARK_BLUE,
                             title: "Login",

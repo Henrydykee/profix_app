@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:profixapp/auth/login_screen.dart';
-import 'package:profixapp/auth/sigunp_screen.dart';
+import 'package:profixapp/screens/auth/login_screen.dart';
+import 'package:profixapp/screens/auth/sigunp_screen.dart';
 import 'package:profixapp/utils/colors.dart';
 import 'package:profixapp/widgets/button.dart';
 import 'package:profixapp/widgets/slide_dots.dart';

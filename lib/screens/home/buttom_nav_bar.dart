@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'home_screen.dart';
+import 'package:profixapp/screens/home/home_screen.dart';
+import 'package:profixapp/screens/home/profile_screen.dart';
 
 class ButtomNav extends StatefulWidget {
   @override
@@ -10,6 +10,7 @@ class ButtomNav extends StatefulWidget {
 class _ButtomNavState extends State<ButtomNav> {
   var screens = [
     HomeScreen(),
+    ProfileScreen(),
   ];
   int selectedTab = 0;
   @override
@@ -38,7 +39,7 @@ class _ButtomNavState extends State<ButtomNav> {
             )
           ]
       ),
-      body: screens[0],
+      body: screens[selectedTab],
     );
   }
 }

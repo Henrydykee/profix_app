@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:profixapp/auth/forgotPasscode/reset_password_screen.dart';
+import 'package:profixapp/screens/auth/forgotPasscode/reset_password_otp_screen.dart';
 import 'package:profixapp/utils/colors.dart';
 import 'package:profixapp/widgets/button.dart';
 
-class ResetPasswordOTPScreen extends StatefulWidget {
+class ResetPasswordEmailScreen extends StatefulWidget {
   @override
-  _ResetPasswordOTPScreenState createState() => _ResetPasswordOTPScreenState();
+  _ResetPasswordEmailScreenState createState() => _ResetPasswordEmailScreenState();
 }
 
-class _ResetPasswordOTPScreenState extends State<ResetPasswordOTPScreen> {
+class _ResetPasswordEmailScreenState extends State<ResetPasswordEmailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,9 +17,9 @@ class _ResetPasswordOTPScreenState extends State<ResetPasswordOTPScreen> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         leading: InkWell(
-            onTap: (){
-              Navigator.of(context).pop();
-            },
+          onTap: (){
+            Navigator.of(context).pop();
+          },
             child: Icon(Icons.arrow_back_ios,size: 25,color: ProfixColor.DARK_BLUE,)),
       ),
       body: Column(
@@ -31,7 +31,7 @@ class _ResetPasswordOTPScreenState extends State<ResetPasswordOTPScreen> {
                 child: Column(
                   children: [
                     Text(
-                      "Enter OTP Code sent to your email",
+                      "Enter your email and will send you instructions on how to reset it",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: ProfixColor.DARK_BLUE,
@@ -39,10 +39,9 @@ class _ResetPasswordOTPScreenState extends State<ResetPasswordOTPScreen> {
                       ),),
                     SizedBox(height: 10,),
                     ResetPasswordFields(
-                      title: "OTP",
+                      title: "Email",
                       icon: Icon(Icons.email,color: Colors.white,),
                     )
-
                   ],
                 ),
               ),
@@ -56,7 +55,7 @@ class _ResetPasswordOTPScreenState extends State<ResetPasswordOTPScreen> {
               onPrressed: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ResetPasswordScreen()),
+                  MaterialPageRoute(builder: (context) => ResetPasswordOTPScreen()),
                 );
               },
             ),

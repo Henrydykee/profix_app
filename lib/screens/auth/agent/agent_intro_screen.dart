@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:profixapp/auth/agent/agent_signup_screen.dart';
+import 'package:profixapp/screens/auth/agent/agent_signup_screen.dart';
 import 'package:profixapp/utils/colors.dart';
 
 class AgentIntroScreen extends StatefulWidget {

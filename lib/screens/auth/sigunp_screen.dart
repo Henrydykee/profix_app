@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:profixapp/auth/welcome_profix.dart';
 import 'package:profixapp/common/status.dart';
 import 'package:profixapp/model/auth_user.dart';
+import 'package:profixapp/screens/auth/welcome_profix.dart';
 import 'package:profixapp/utils/colors.dart';
 import 'package:profixapp/utils/pref_utils.dart';
 import 'package:profixapp/viewmodels/auth.dart';
@@ -40,6 +40,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
             PrefUtils.setUserHasFinishedOnboarding();
             PrefUtils.setFirstName(_firstname.text);
             PrefUtils.setLastName(_lastname.text);
+            PrefUtils.setPhoneNumber(_phoneNumber.text);
+            PrefUtils.setGender("Male");
             WidgetsBinding.instance.addPostFrameCallback((_) {
              viewModel.clearStatus();
              Navigator.pushAndRemoveUntil(

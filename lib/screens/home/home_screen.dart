@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profixapp/facilityManagment/facility_management.dart';
 import 'package:profixapp/utils/colors.dart';
 import 'package:profixapp/utils/pref_utils.dart';
 import 'package:profixapp/widgets/button.dart';
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 maxRadius: 70.0,
                 backgroundColor: ProfixColor.DARK_BLUE,
                 child: CircleAvatar(
-                  backgroundColor: Colors.black,
+                  backgroundImage: AssetImage("assets/images/avatar.png"),
                   maxRadius: 65.0,
                 ),
               ),
@@ -88,7 +89,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               SizedBox(height: 10,),
-              ///////////////////////////
               Divider(
                 height: 5,
                 color: Colors.black,
@@ -132,7 +132,6 @@ class _HomeScreenState extends State<HomeScreen> {
         )
       ),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
         flexibleSpace: Image(
           image: AssetImage('assets/images/home_header.png'),
           fit: BoxFit.cover,
@@ -262,7 +261,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     QuickButton(
                       image:"assets/images/facility_mgt.png" ,
                       title: "Facility Mgnt",
-                      ontap: (){},
+                      ontap: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => FacilityManagement()),
+                        );
+                      },
                     ),
                     SizedBox(width: 10,),
                     QuickButton(
@@ -294,11 +298,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     color: ProfixColor.DARK_BLUE,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                        image: AssetImage("assets/images/market.jpg")),
                     borderRadius: BorderRadius.circular(10.0)),
                 child: Center(
                   child: Text("MARKET PLACE",style: TextStyle(
                     fontSize: 25,
-                    color: Colors.white
+                    color: ProfixColor.DARK_BLUE,
+                    fontWeight: FontWeight.bold
                   ),),
                 ),
               ),
@@ -315,22 +323,37 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       height: 163,
                       width: MediaQuery.of(context).size.width,
-                      color: ProfixColor.DARK_BLUE,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage("assets/images/tools.jpg"))
+                      ),
                     ),
                     Container(
                       height: 163,
                       width: MediaQuery.of(context).size.width,
-                      color: ProfixColor.DARK_BLUE,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage("assets/images/market.jpg"))
+                      ),
+                    ),    Container(
+                      height: 163,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage("assets/images/tools.jpg"))
+                      ),
                     ),   Container(
                       height: 163,
                       width: MediaQuery.of(context).size.width,
-                      color: ProfixColor.DARK_BLUE,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                              image: AssetImage("assets/images/market.jpg"))
+                      ),
                     ),
-                    Container(
-                      height: 163,
-                      width: MediaQuery.of(context).size.width,
-                      color: ProfixColor.DARK_BLUE,
-                    )
                   ],
                 ),
               ),
@@ -350,7 +373,6 @@ class QuickButton extends StatelessWidget {
   QuickButton({this.image, this.ontap,this.title});
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return InkWell(
         onTap: ontap,
         child: Container(

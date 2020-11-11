@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:profixapp/auth/login_screen.dart';
 import 'package:profixapp/boardingFlow/boarding_screen.dart';
+import 'package:profixapp/screens/auth/login_screen.dart';
 import 'package:profixapp/utils/pref_utils.dart';
 import 'package:profixapp/viewmodels/auth.dart';
 import 'package:provider/provider.dart';

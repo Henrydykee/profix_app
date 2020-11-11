@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:profixapp/home/buttom_nav_bar.dart';
+import 'package:profixapp/screens/home/buttom_nav_bar.dart';
 import 'package:profixapp/utils/colors.dart';
 
 class WelcomeProfix extends StatefulWidget {
