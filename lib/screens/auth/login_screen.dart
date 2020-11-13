@@ -131,13 +131,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           ProfixButton(
                             status: viewModel.getUserLoginStatus(),
                             onPrressed:() async {
-                              Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return ButtomNav();
-                                }),
-                                    (_) => false,
-                              );
+                              // Navigator.pushAndRemoveUntil(
+                              //   context,
+                              //   MaterialPageRoute(builder: (context) {
+                              //     return ButtomNav();
+                              //   }),
+                              //       (_) => false,
+                              // );
                               if(!_formKey.currentState.validate()){
                                 return;
                               } else {

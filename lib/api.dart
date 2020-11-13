@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:http/http.dart' as http;
 import 'package:profixapp/model/auth_user.dart';
+
 class API{
   static const BASE_URL = "https://profix--api.herokuapp.com/api/v1";
 
@@ -19,6 +19,12 @@ class API{
     var body = json.encode(userLogin.toJson());
     log("$body");
     return await http.post(url, headers: headers, body: body);
+  }
+
+  Future<http.Response> getUserDetails(String token) async {
+    var url = "$BASE_URL/users/$token";
+    Map<String, String> headers = {'Content-Type': 'application/json'};
+    return await http.post(url, headers: headers);
   }
 
 }
